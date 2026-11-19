@@ -1,0 +1,41 @@
+# Takım klasörlerinin şablona (sablon/) ve şartnameye uygunluğunu her commit'te denetler.
+# Denetimlerin kendisi olcum/kontrol.py'dedir. Push'larda tüm takımlar, pull request'lerde
+# yalnızca değişikliğin dokunduğu takımlar denetlenir. Hatalar commit'i başarısız gösterir;
+# uyarılar yalnızca bildirilir.
+name: Takım klasörü kontrolü
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kontrol:
+    name: Şablona uygunluk
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repoyu al
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 3.10 (referans ortamdaki sürüm)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Takım klasörlerini denetle
+        env:
+          OLAY: ${{ github.event_name }}
+          TABAN: ${{ github.event.pull_request.base.sha }}
+          UC: ${{ github.event.pull_request.head.sha }}
+        run: |
+          if [ "$OLAY" = "pull_request" ]; then
+            git diff --name-only "$TABAN...$UC" > "$RUNNER_TEMP/degisenler.txt"
+            python3 olcum/kontrol.py --degisenler "$RUNNER_TEMP/degisenler.txt"
+          else
+            python3 olcum/kontrol.py
+          fi

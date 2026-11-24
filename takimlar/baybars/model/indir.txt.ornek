@@ -1,0 +1,7 @@
+# Model dosyalarını repo dışında barındırıyorsanız gereklidir (GitHub 100 MB'tan büyük dosyaları kabul etmez).
+# Şartname gereği repo dışındaki model dosyaları yalnızca HuggingFace ya da Kaggle'da barındırılabilir.
+# Kullanacaksanız bu dosyanın adını indir.txt olarak değiştirin ve örnek satırı kendi dosyanızla değiştirin.
+# Her satır: dosya adı, doğrudan indirme adresi, SHA256 özeti (boşlukla ayrılmış).
+# Bağlantılar herkese açık olmalı ve en az Final Günü'ne (23 Ocak 2027) kadar erişilebilir kalmalıdır.
+# SHA256 özeti: Linux'ta `sha256sum dosya`, Windows'ta `certutil -hashfile dosya SHA256`.
+model.onnx https://huggingface.co/kullanici/model-adi/resolve/main/model.onnx 0000000000000000000000000000000000000000000000000000000000000000

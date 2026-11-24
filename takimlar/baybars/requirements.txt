@@ -1,0 +1,5 @@
+# Ek Python paketleri, sürümleriyle (paket==sürüm). Referans ortamda hazır gelen paketleri yazmanıza gerek yoktur.
+# Jüri Heyeti projeyi kurarken bu dosyayı `pip install -r requirements.txt` ile kurar; komutu README'deki kurulum adımlarına da yazın.
+# Örnek:
+# numpy==1.26.4
+# opencv-python-headless==4.10.0.84

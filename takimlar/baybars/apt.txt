@@ -1,0 +1,4 @@
+# Varsa sistem paketleri: her satırda bir paket, sürümüyle (paket=sürüm). # ile başlayan satırlar yok sayılır.
+# Sürümü kartta `apt-cache policy paket` komutuyla görebilirsiniz. Gerekmiyorsa dosyayı boş bırakın.
+# Örnek:
+# zbar-tools=0.23.92-4build2
